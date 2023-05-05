@@ -1,11 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-
 using namespace std;
 
-// Declaring variables
-
+// global variables
 int dom_pnr = 100;
 int int_pnr = 200;
 
@@ -13,19 +11,15 @@ int int_pnr = 200;
 class dom_booking
 {
 
-    // Declaring variables
-
 protected:
     int d_pnr, dom_passengers, dom_meal_choice;
-    char flight_dom[50], dom_meal[20], meal1[20];
-    ;
+    char flight_dom[50], dom_meal[20], meal1[20], selectSeat[10];
     char date_dom[10];
     char dom_dep[20], dom_arr[20];
     int choice_dom, source, destination;
 
 public:
-    // Function for generating domestic ticket pnr numbers
-
+    // generating domestic ticket pnr numbers
     void generate_dom_pnr()
     {
 
@@ -33,9 +27,8 @@ public:
         d_pnr = dom_pnr;
     };
 
-    // Function for getting domestic travel information from the user
-
-    int travel_details_dom()
+    // getting domestic travel information from the user
+    void travel_details_dom()
 
     {
 
@@ -87,9 +80,9 @@ public:
             cout << "-------------------------------------------------------" << endl;
             cout << "Airlines\tDeparture\tArrival\t\tPrice\n"
                  << endl;
-            cout << "\Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
-            cout << "\IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
-            cout << "\SpiceJet(3)\t19:00\t\t22:05\t\tRs.6000\n";
+            cout << "Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
+            cout << "IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
+            cout << "SpiceJet(3)\t19:00\t\t22:05\t\tRs.6000\n";
         }
 
         else if ((source == 1 && destination == 4) || (source == 4 && destination == 1))
@@ -100,9 +93,9 @@ public:
             cout << "Airlines\tDeparture\tArrival\t\tPrice\n"
                  << endl;
             ;
-            cout << "\Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
-            cout << "\IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
-            cout << "\SpiceJet(3)t18:00\t\t21:05\t\tRs.6000\n";
+            cout << "Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
+            cout << "IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
+            cout << "SpiceJet(3)\t18:00\t\t21:05\t\tRs.6000\n";
         }
 
         else if ((source == 2 && destination == 3) || (source == 3 && destination == 2))
@@ -112,9 +105,9 @@ public:
             cout << "-------------------------------------------------------" << endl;
             cout << "Airlines\tDeparture\tArrival\t\tPrice\n"
                  << endl;
-            cout << "\Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
-            cout << "\IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
-            cout << "\SpiceJet(3)\t18:00\t\t21:05\t\tRs.6000\n";
+            cout << "Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
+            cout << "IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
+            cout << "SpiceJet(3)\t18:00\t\t21:05\t\tRs.6000\n";
         }
 
         else if ((source == 2 && destination == 4) || (source == 4 && destination == 2))
@@ -126,8 +119,8 @@ public:
             cout << "Airlines\tDeparture\tArrival\t\tPrice\n"
                  << endl;
             cout << "\1.Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
-            cout << "\IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
-            cout << "\SpiceJet(3\t18:00\t\t21:05\t\tRs.6000\n";
+            cout << "IndiGo(2)\t14:00\t\t17:05\t\tRs.5500\n";
+            cout << "SpiceJet(3\t18:00\t\t21:05\t\tRs.6000\n";
         }
         else if ((source == 3 && destination == 4) || (source == 4 && destination == 3))
         {
@@ -136,9 +129,9 @@ public:
             cout << "-------------------------------------------------------" << endl;
             cout << "Airlines\tDeparture\tArrival\t\tPrice\n"
                  << endl;
-            cout << "\Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
-            cout << "\IndiGo(2)\t14:00\t\t17:05\t\tRs.5508\n";
-            cout << "\SpiceJet(3)\t18:00\t\t21:05\t\tRs.6000\n";
+            cout << "Air India(1)\t08:00\t\t11:05\t\tRs.5000\n";
+            cout << "IndiGo(2)\t14:00\t\t17:05\t\tRs.5508\n";
+            cout << "SpiceJet(3)\t18:00\t\t21:05\t\tRs.6000\n";
         }
         else if (source == destination)
         {
@@ -154,8 +147,8 @@ public:
         }
     }
 
-    // Function for selecting domestic flight
-    int select_flight_dom()
+    // selecting domestic flight
+    void select_flight_dom()
 
     {
         cout << "\nEnter your choice : " << endl;
@@ -204,8 +197,39 @@ public:
         }
     }
 
-    // Function for selecting domestic flight meal
-    int dom_meals()
+    void select_seat_dom()
+    {
+        cout << "---------------------------------------" << endl;
+        cout << "Please enter your Seat preference : " << endl;
+        cout << "---------------------------------------" << endl;
+        int i, j = 0, k = 65, x;
+        for (i = 0; i < 20; i++)
+        {
+            for (x = 0; x < 7; x++)
+            {
+                if (x == 3)
+                {
+                    cout << char(k) << '\t';
+                    k++;
+                }
+                if (x < 3)
+                {
+                    cout << "[" << x + 1 << "]" << '\t';
+                }
+                if (x > 3)
+                {
+                    cout << "[" << x << "]" << '\t';
+                }
+            }
+            cout << endl;
+        }
+        cout << "Select the required seat eg: A5" << endl;
+        cin >> selectSeat;
+        cout << endl;
+    }
+
+    // selecting domestic flight meal
+    void dom_meals()
     {
 
         cout << "---------------------------------------" << endl;
@@ -247,27 +271,24 @@ public:
     }
 };
 
-
 // Class for international booking
 class int_booking
 {
 
-    // Declaring variables
-protected:
+public:
     int i_pnr, int_passengers, int_meal_choice, int_meal_price;
-    char flight_int[20], int_dep[20], int_arr[20], meal2[30], int_meal_choices[20];
+    char flight_int[20], int_dep[20], int_arr[20], meal2[30], int_meal_choices[20], selectseat[10];
     char date_int[20];
     int source_int, destination_int, choice_int;
 
-public:
     void generate_int_pnr()
     {
         int_pnr++;
         i_pnr = int_pnr;
     }
 
-    // Function for getting international travel information from the user
-    int travel_details_int()
+    // getting international travel information from the user
+    void travel_details_int()
 
     {
 
@@ -382,9 +403,8 @@ public:
         }
     }
 
-    // Function for selecting international flight
-
-    int select_flight_int()
+    // selecting international flight
+    void select_flight_int()
     {
         cout << "\nEnter your choice : " << endl;
         cin >> choice_int;
@@ -433,8 +453,39 @@ public:
         }
     }
 
-    // Function for selecting international flight meal
-    int int_meal()
+    void select_seat_int()
+    {
+        cout << "---------------------------------------" << endl;
+        cout << "Please enter your Seat preference : " << endl;
+        cout << "---------------------------------------" << endl;
+        int i, j = 0, k = 65, x;
+        for (i = 0; i < 20; i++)
+        {
+            for (x = 0; x < 7; x++)
+            {
+                if (x == 3)
+                {
+                    cout << char(k) << '\t';
+                    k++;
+                }
+                if (x < 3)
+                {
+                    cout << "[" << x + 1 << "]" << '\t';
+                }
+                if (x > 3)
+                {
+                    cout << "[" << x << "]" << '\t';
+                }
+            }
+            cout << endl;
+        }
+        cout << "Select the required seat eg: A5" << endl;
+        cin >> selectseat;
+        cout << endl;
+    }
+
+    // selecting international flight meal
+    void int_meal()
     {
 
         cout << "------------------" << endl;
@@ -476,36 +527,30 @@ public:
     }
 };
 
-
 // Class passenger inherits the classes dom_booking and int_booking
 class passenger : public dom_booking, public int_booking
 {
-
-    // Declaring variables
-protected:
+public:
     char name[100], email[50], gender[20], pass_no[30], contact_no[30];
 
-public:
-    // Function for getting the details of the passengers
-
+    // getting the details of the passengers
     void passenger_details(int x)
 
     // if - else statements for domestic and international booking selection
-
     {
         system("CLS");
         if (x == 1)
         {
             travel_details_dom();
             select_flight_dom();
-
+            select_seat_dom();
             dom_meals();
         }
         else
         {
             travel_details_int();
             select_flight_int();
-
+            select_seat_int();
             int_meal();
         }
 
@@ -525,7 +570,7 @@ public:
         cin >> pass_no;
     }
 
-    // Function to display passenger details
+    //  display passenger details
     void display_details()
     {
         system("CLS");
@@ -540,20 +585,19 @@ public:
         cout << "Passport number :" << pass_no << endl;
     }
 
-    // Function to get pnr for domestic booking
+    //  get pnr for domestic booking
     int getpnr_dom()
     {
         return d_pnr;
     }
 
-    // Function to get pnr for international booking
+    //  get pnr for international booking
     int getpnr_int()
     {
         return i_pnr;
     }
 
-    // Function to display details of domestic booking
-
+    //  display details of domestic booking
     void disp_dom()
     {
         cout << "PNR :" << d_pnr << endl;
@@ -565,8 +609,7 @@ public:
         cout << "Meal choice:" << meal1 << endl;
     }
 
-    // Function to display details of international booking
-
+    //  display details of international booking
     void disp_int()
     {
         cout << "PNR:" << i_pnr << endl;
@@ -579,7 +622,6 @@ public:
     }
 };
 
-
 // class for payment
 class payment
 {
@@ -590,7 +632,7 @@ protected:
     char password[30];
 
 public:
-    // Function for getting and displaying payment details
+    // getting and displaying payment details
     void payment_details()
 
     {
@@ -639,32 +681,33 @@ public:
     }
 };
 
-// Function to create domestic flight ticket
+//  create domestic flight ticket
 void createfile_dom(passenger y)
 {
     // Append-only mode is used to insert the text at the end of the file and binary mode to write data
     ofstream file_out("Domestic_flight_details.txt", ios::binary | ios::app);
     // writing to file
-   // To write object's data members in a file :
+    // To write object's data members in a file :
     file_out.write((char *)&y, sizeof(y));
     // closing file
     file_out.close();
 }
 
-// Function to cancel domestic flight ticket
+//  cancel domestic flight ticket
 void dom_cancelticket(int x)
 {
     passenger y;
     int f = 0;
-    ifstream file_in("Domestic_flight_details.txt", ios::binary | ios::app);
-    ofstream file_out("Domestic_flight_details1.txt", ios::binary | ios::app);
+    // Binary File Handling is a process in which we create a file and store data in its original format. It means that if we stored an integer value in a binary file, the value will be treated as an integer rather than text.
+    ifstream file_in("Domestic_flight_details.txt", ios::binary | ios::app);   // to write a file
+    ofstream file_out("Domestic_flight_details1.txt", ios::binary | ios::app); // to read a file
     file_in.read((char *)&y, sizeof(y));
     while (file_in)
-    { // checking if pnr exists
+    {
         if (y.getpnr_dom() != x)
             file_out.write((char *)&y, sizeof(y));
         else
-        { // Calling function to display details
+        { // Calling  display details
             y.disp_dom();
             cout << "\nYour  ticket has been deleted\n";
             // Incrementinf f if pnr is found
@@ -683,7 +726,6 @@ void dom_cancelticket(int x)
     // renaming new file
     rename("Domestic_flight_details1.txt", "Domestic_flight_details.txt");
 }
-
 
 void dom_checkticket(int x)
 {
@@ -712,7 +754,7 @@ void dom_checkticket(int x)
         cout << "This PNR number does not exist" << endl;
 }
 
-// Function to create a file for international booking
+//  create a file for international booking
 void createfile_int(passenger y)
 {
     ofstream file_out("International.txt", ios::binary | ios::app);
@@ -720,7 +762,7 @@ void createfile_int(passenger y)
     file_out.close();                      // closing file
 }
 
-// Function to cancel a file for international booking
+//  cancel a file for international booking
 void int_cancelticket(int x)
 {
     passenger y;
@@ -734,7 +776,7 @@ void int_cancelticket(int x)
             // writing to new file;
             file_out.write((char *)&y, sizeof(y));
         else
-        { // Calling function to display details
+        { // Calling  display details
             y.disp_int();
             cout << "You ticket is being deleted\n";
             // incrementing f if pnr found
@@ -753,7 +795,6 @@ void int_cancelticket(int x)
     // renaming new file
     rename("International1.txt", "International.txt");
 }
-
 
 void int_checkticket(int x)
 {
@@ -781,9 +822,9 @@ void int_checkticket(int x)
         cout << "This PNR number does not exist" << endl;
 }
 
+
 int main()
-{
-    // Creating objects for classes
+{   // Creating objects for classes
     class dom_booking d;
     class int_booking i;
     class passenger p;
@@ -791,14 +832,79 @@ int main()
 
     // Declaring variables
     int choice, choice1, choice2, choice3, input;
-    char input1;
+    char input1, input2;
+    int count = 0;
 
+    int userchoice;
+    system("CLS");
+
+    cout << "WELCOME TO AirHub" << endl;
+    cout << "--------------------------------" << endl;
+    cout << "Do you want to\n (1) Register new account \n (2) Login " << endl;
+    cout << "--------------------------------" << endl;
+    cout << "Enter your choice:" << endl;
+    cin >> userchoice;
+
+    // login page using file handling
+    switch (userchoice)
+    {
+    case (1): // register new account
+    {
+        string name, password;
+        fstream filename;
+        filename.open("test.txt", ios::app);
+        cout << "Enter name: ";
+        cin >> name;
+        cout << "Enter password: ";
+        cin >> password;
+        filename << name << " " << password << endl;
+        filename.close();
+        cout << "regiration done successfully" << endl;
+        break;
+    }
+    case (2): // login
+    {
+        fstream filename;
+        filename.open("test.txt", ios::in);
+        string line;
+        string name2, password2;
+        string checkname, checkpassword;
+        if (filename.is_open())
+        {
+            cout << "Enter name: ";
+            cin >> name2;
+            cout << "Enter password: ";
+            cin >> password2;
+            while (filename >> checkname >> checkpassword) // inside while boolean is returned
+            {
+                if (checkname == name2 && checkpassword == password2)
+                {
+                    filename.close();
+                    count = 0;
+                    break;
+                }
+                else
+                {
+                    cout << "login failed ! please register yourself first" << endl;
+                    cout << "\nDo you wish to Register new account? (Y/N)" << endl;
+                    cin >> input2;
+                    if (input2 == 'y' || input2 == 'Y')
+                    {
+                        return main();
+                    }
+                }
+            }
+        }
+    }
+    }
+
+    system("CLS");
+    cout << " Login Done Successfully \n"
+         << endl;
     // Do-While loop
     do
     {
-        system("CLS");
-
-        cout << "AIRLINE RESERVATION SYSTEM" << endl;
+        cout << "Please Answer following answers :" << endl;
         cout << "--------------------------------" << endl;
         cout << "1.Book flight(1) \n2.Cancel fight(2) \n3.Check your flight ticket(3) \n4.Exit(4)" << endl;
         cout << "--------------------------------" << endl;
@@ -817,9 +923,7 @@ int main()
 
             switch (choice1)
             {
-
                 // Booking domestic flight
-
             case 1:
                 p.generate_dom_pnr();
                 p.passenger_details(1);
@@ -847,7 +951,6 @@ int main()
 
         // Canceling flight ticket
         case 2:
-
             system("CLS");
             cout << "1.Domestic Fights(1) \n2.International Flights(2)" << endl;
             cout << "\nPlease enter your option" << endl;
@@ -874,7 +977,7 @@ int main()
         // Displaying booked ticket details
         case 3:
             system("CLS");
-            cout << "\Check your tickets" << endl;
+            cout << "Check your tickets" << endl;
             cout << "------------------------" << endl;
             cout << "1.Domestic Fights(1) \n2.International Flights(2)" << endl;
             cout << "\nEnter your option :" << endl;
